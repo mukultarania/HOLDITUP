@@ -1,0 +1,101 @@
+body{
+  background-color:#f4f4f4;
+	color:#555;
+	font-family: 'B612', sans-serif;
+	font-size:16px;
+	line-height:1.6em;
+	margin:0;
+}
+
+#main-header{
+  text-align: center;
+  margin: 15px;
+  font-size: 30px;
+  font-family: 'B612', sans-serif;
+}
+#main-header h2{
+  margin-top: 70px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #ff8080;
+}
+
+.topnav a {
+  float: left;
+  color: white;;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #ff8080;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+
+.card-container {
+  width: auto;
+  display: -webkit-flex; /* Safari */
+  -webkit-align-items: center; /* Safari 7.0+ */
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  margin-top: 30px;
+}
+
+.card-container div {
+   -webkit-flex: 1; /* Safari 6.1+ */
+   flex: 1;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100px;
+  margin: 100px;
+  border-radius: 5px 5px 0 0;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.container h4{
+  text-align: center;
+}
+
+#main-footer{
+  position:absolute;
+  bottom:0;
+  right:0;
+  background: #333;
+  color:#fff;
+  text-align: center;
+  padding:20px;
+  width: 100%;
+}
+.sidebar{
+  width:10%;
+  height:78%;
+
+}
+.sidebar a{
+  padding: 5px;
+  text-align: center;
+  font-size: 0.8em;
+}
