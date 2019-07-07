@@ -1,4 +1,4 @@
-<div class="topnav">
+<div class="topnav sticky-top">
   <a class="active" href="#home">Home</a>
   <a href="#news">Profile</a>
   <a href="#contact">Contact</a>
