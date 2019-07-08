@@ -20,7 +20,7 @@ body{
 
 .topnav {
   overflow: hidden;
-  background-color: #ff8080;
+  background-color: #42d4f5;
   height: 7%;
 }
 
@@ -39,7 +39,7 @@ body{
 }
 
 .topnav a.active {
-  background-color: #ff8080;
+  background-color: #42d4f5;
   color: white;
 }
 
@@ -47,6 +47,7 @@ body{
   float: right;
 }
 .sidebar{
+  margin: 0px;
   width:10%;
   height:83%;
 }
@@ -55,8 +56,14 @@ body{
   text-align: center;
   font-size: 0.8em;
 }
-.container{
+.padd{
   padding-bottom: 100px;
+  margin-left: 150px;
+}
+.side{
+  margin: 0px;
+  width:10%;
+  height:83%;
 }
 #main-footer{
   position:fixed;
@@ -70,4 +77,9 @@ body{
   height: 10%;
   margin-bottom: 0px;
   padding-bottom: 0px;
+}
+.contain{
+  margin-bottom: 10%;
+  padding-left: 12%;
+  padding-right: 3%;
 }

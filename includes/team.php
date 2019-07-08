@@ -1,9 +1,10 @@
 <table class="table">
   <thead>
     <th>ID</th>
-    <th>Name</th>
     <th>Team Name</th>
-    <th>Pending Work</th>
+    <th>No. Of Members</td>
+    <th>Join ID</th>
+    <th>Message</th>
     <th><a href=#>Remove</a></th>
   </thead>
   <tr>

@@ -14,7 +14,7 @@
 
     </div>
     <div class="col-xl-11">
-      <?php include "includes/members.php";?>
+      
     </div>
   </div>
 
