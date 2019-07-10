@@ -18,18 +18,15 @@
 <div class="container-fluid contain">
   <div class="row justify-content-center">
     <div class="col-3">
-
-    </div>
-    <div class="col-3">
       <img class="rounded-circle" src="images/your_project.jpg" alt="" width="250px" height="250px">
-    </div>
-    <div class="col-3">
-      <button class="btn-primary" type="submit" name="Edit"><a href=#>Edit</a></button>
     </div>
   </div>
   <br>
   <br>
   <div class="row justify-content-center">
+    <div class="col-xs-1">
+      <button class="btn btn-info" type="submit" name="Edit"><a href=#>Edit</a></button>
+    </div>
     <div class="col-xl-5">
     <ul class="list-group" style="list-style: none;">
       <li class="list-group-item"><h3><strong>Name</strong></h3>  </li>

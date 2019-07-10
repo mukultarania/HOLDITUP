@@ -10,11 +10,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xl-1">
-
-    </div>
     <div class="col-xl-11">
-      
+      <?php include "includes/team.php"; ?>
     </div>
   </div>
 

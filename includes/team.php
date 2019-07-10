@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-striped">
   <thead>
     <th>ID</th>
     <th>Team Name</th>

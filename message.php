@@ -14,8 +14,8 @@
   </div>
 </div>
  <h2 id="main-header">Messages</h2>
-
-<div class="container-fluid">
+<hr>
+<div class="container-fluid contain">
   <div class="row">
     <div class="col-xl-2">
       <h7>Sender: <strong><small>Mukul</small></strong></h7><br>
@@ -35,7 +35,7 @@
     <div class="col-xl-1"><hr>
       <button type="button" name="button">Reply</button>
     </div>
-  </div>
+  </div><br> <hr>
   <div class="row">
     <div class="col-xl-2">
       <h7>Sender: <strong><small>Mukul</small></strong></h7><br>
