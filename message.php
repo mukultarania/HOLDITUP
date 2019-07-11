@@ -33,7 +33,7 @@
           "one of its roles is the designation of nature reserves"</p>
     </div>
     <div class="col-xl-1"><hr>
-      <button type="button" name="button">Reply</button>
+      <button type="button" name="button" onclick="location.href='includes/reply.php?from=mukul';">Reply</button>
     </div>
   </div><br> <hr>
   <div class="row">

@@ -41,7 +41,7 @@
       <button type="button" class="btn btn-secondary btn-block" name="button">GO</button>
     </div>
     <div class="col-2 ml-auto">
-      <button type="button" class="btn btn-success   btn-block" name="button">POST UPDATE</button>
+      <button type="button" class="btn btn-success btn-block" onclick="location.href='post-update.php';" name="button">POST UPDATE</button>
     </div>
   </div>
   <hr>
