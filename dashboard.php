@@ -5,13 +5,39 @@
   <!-- navigation-->
 <?php include "includes/nav.php"; ?>
 <!--Sidebar-->
-<?php include "includes/sidebar.php"; ?>
- <h2 id="main-header">Manage Your Team</h2>
-
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xl-11">
-      <?php include "includes/team.php"; ?>
+    <div class="col-2">
+      <?php include "includes/sidebar.php"; ?>
+    </div>
+
+  </div>
+</div>
+<br>
+<div class="container-fluid contain">
+  <div class="row">
+    <div class="col-xl-12">
+      <?php
+if(isset($_GET['select'])){
+  $select = $_GET['select'];
+  switch ($select) {
+    case "team":
+        include "includes/team.php";
+        break;
+    case "task":
+    include "includes/task.php";
+    break;
+    case "members":
+    include "includes/members.php";
+    break;
+
+    default:
+        echo "<script>location.href='dashboard.php'</script>";
+}
+
+}
+        ?>
+
     </div>
   </div>
 

@@ -1,9 +1,17 @@
 <?php include "includes/login_header.php"; ?>
 <?php include "includes/db.php"; ?>
+<?php include "includes/functions.php" ?>
 <?php
+// $name, $phone, $email, $password
 if(isset($_POST['submit'])){
-  $name = $_POST['name'];
-  echo $name;
+  global $connection;
+  $name = ($_POST['name']);
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $password = $_POST['password'];
+  $signup_qry = "INSERT INTO user (user_name, user_phone, user_email, user_password) VALUES ('$name', '$phone', '$email', '$password')";
+  $result = mysqli_query($connection, $signup_qry);
+  checkQry($result);
 }
 
 
@@ -22,7 +30,7 @@ if(isset($_POST['submit'])){
         </div>
         <div class="txt-left-side">
             <h2> Sign Up Here </h2>
-            <form action="#" method="post">
+            <form action="index.html" method="post">
                 <div class="form-left-to-w3l">
                     <span class="fa fa-user-o" aria-hidden="true"></span>
                     <input type="text" name="name" placeholder=" Name" required="">
@@ -42,12 +50,11 @@ if(isset($_POST['submit'])){
                     <div class="clear"></div>
                 </div>
                 <div class="form-left-to-w3l ">
-
                     <span class="fa fa-lock" aria-hidden="true"></span>
                     <input type="password" name="password" placeholder="Password" required="">
                     <div class="clear"></div>
                 </div>
-                <div class="main-two-w3ls">
+                <!-- <div class="main-two-w3ls">
                     <div class="left-side-forget">
                         <input type="checkbox" class="checked">
                         <span class="remenber-me">Remember me </span>
@@ -55,7 +62,7 @@ if(isset($_POST['submit'])){
                     <div class="right-side-forget">
                         <a href="#" class="for">Forgot password...?</a>
                     </div>
-                </div>
+                </div> -->
                 <div class="btnn">
                     <button type="submit" name="submit">Sign Up </button>
                 </div>

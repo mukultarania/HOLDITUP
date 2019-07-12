@@ -28,15 +28,15 @@
                     <input type="password" name="password" placeholder="Password" required="">
                     <div class="clear"></div>
                 </div>
-                <div class="main-two-w3ls">
-                    <div class="left-side-forget">
-                        <input type="checkbox" class="checked">
-                        <span class="remenber-me">Remember me </span>
-                    </div>
-                    <div class="right-side-forget">
-                        <a href="#" class="for">Forgot password...?</a>
-                    </div>
-                </div>
+                  <!-- <div class="main-two-w3ls">
+                      <div class="left-side-forget">
+                          <input type="checkbox" class="checked">
+                          <span class="remenber-me">Remember me </span>
+                      </div>
+                      <div class="right-side-forget">
+                          <a href="#" class="for">Forgot password...?</a>
+                      </div>
+                  </div> -->
                 <div class="btnn">
                     <button type="submit">Login </button>
                 </div>
