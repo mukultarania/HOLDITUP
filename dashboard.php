@@ -14,10 +14,7 @@
   </div>
 </div>
 <br>
-<div class="container-fluid contain">
-  <div class="row">
-    <div class="col-xl-12">
-      <?php
+<?php
 if(isset($_GET['select'])){
   $select = $_GET['select'];
   switch ($select) {
@@ -38,10 +35,7 @@ if(isset($_GET['select'])){
 }
         ?>
 
-    </div>
-  </div>
 
-</div>
 
 <!--footer-->
 <?php include "includes/footer.php"; ?>
