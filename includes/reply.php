@@ -1,7 +1,18 @@
+<?php session_start(); ?>
+<?php include "db.php"; ?>
+<?php include "functions.php"; ?>
 <?php
-if(isset($_GET['from'])){
-  $from=$_GET['from'];
-} ?>
+if(isset($_SESSION['email'])){
+  $to=$_GET['to'];
+  if(isset($_POST['submit'])){
+    global $connection;
+    $email = $_SESSION['email'];
+    $content = $_POST['content'];
+    sendmsg($to, $email, $content);
+     //
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,17 +52,17 @@ if(isset($_GET['from'])){
 <div class="container-fluid contain">
   <div class="row">
     <div class="col-11">
-      <form>
+      <form action="# " method="post">
         <div class="form-group">
           <label for="first-name">To</label>
-          <input type="text" name="to" class="form-control" value="<?php echo"$from";?>">
+          <input type="text" name="to" class="form-control" value="<?php echo $to;?>">
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea rows="6" class="form-control" placeholder="Your Message"></textarea>
+          <textarea rows="6" class="form-control" placeholder="Your Message" name="content"></textarea>
         </div>
         <div class="form-group">
-          <input class="btn btn-secondary" type="submit" class="form-control" value="Send">
+          <input class="btn btn-secondary" type="submit" class="form-control" value="Send" name="submit">
         </div>
       </form>
 

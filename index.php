@@ -1,5 +1,15 @@
+<?php session_start(); ?>
 <?php include "includes/login_header.php"; ?>
 <?php include "includes/db.php"; ?>
+<?php include "includes/functions.php"; ?>
+<?php
+if(isset($_POST['submit'])){
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  checkLogin($email, $password);
+  // echo "<script>alert('$email')</script>";
+}
+?>
 <body>
     <h1 class="error">Team Manager</h1>
 	<!---728x90--->
@@ -38,7 +48,7 @@
                       </div>
                   </div> -->
                 <div class="btnn">
-                    <button type="submit">Login </button>
+                    <button type="submit" name="submit">Login </button>
                 </div>
             </form>
             <div class="w3layouts_more-buttn">
