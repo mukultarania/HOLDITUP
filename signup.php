@@ -3,7 +3,7 @@
 <?php include "includes/functions.php" ?>
 <?php
 // $name, $phone, $email, $password
-if(isset($_POST['submit'])){
+if(isset($_POST['signup'])){
   global $connection;
   $name = $_POST['name'];
   $email = $_POST['email'];
@@ -12,6 +12,7 @@ if(isset($_POST['submit'])){
   $signup_qry = "INSERT INTO user (user_name, user_phone, user_email, user_password) VALUES ('$name', '$phone', '$email', '$password')";
   $result = mysqli_query($connection, $signup_qry);
   checkQry($result);
+  echo "<script>location.href='index.php'</script>";
 }
 
 
@@ -30,7 +31,7 @@ if(isset($_POST['submit'])){
         </div>
         <div class="txt-left-side">
             <h2> Sign Up Here </h2>
-            <form action="index.php" method="post">
+            <form action="#" method="post">
                 <div class="form-left-to-w3l">
                     <span class="fa fa-user-o" aria-hidden="true"></span>
                     <input type="text" name="name" placeholder=" Name" required="">
@@ -64,7 +65,7 @@ if(isset($_POST['submit'])){
                     </div>
                 </div> -->
                 <div class="btnn">
-                    <button type="submit" name="submit">Sign Up </button>
+                    <button type="submit" name="signup">Sign Up </button>
                 </div>
             </form>
             <div class="w3layouts_more-buttn">

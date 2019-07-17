@@ -1,15 +1,22 @@
 <?php session_start(); ?>
-<?php include "db.php"; ?>
-<?php include "functions.php"; ?>
+<?php include "../includes/db.php"; ?>
+<?php include "../includes/functions.php"; ?>
 <?php
 if(isset($_SESSION['email'])){
-  $to=$_GET['to'];
   if(isset($_POST['submit'])){
-    global $connection;
-    $email = $_SESSION['email'];
-    $content = $_POST['content'];
-    sendmsg($to, $email, $content);
-     //
+    if(isset($_GET['to'])){
+      $to=$_GET['to'];
+      global $connection;
+      $email = $_SESSION['email'];
+      $content = $_POST['content'];
+      sendmsg($to, $email, $content);
+    } else {
+      global $connection;
+      $to=$_GET['too'];
+      $email = $_SESSION['email'];
+      $content = $_POST['content'];
+      sendmsg($to, $email, $content);
+    }
   }
 }
 ?>
@@ -55,7 +62,7 @@ if(isset($_SESSION['email'])){
       <form action="# " method="post">
         <div class="form-group">
           <label for="first-name">To</label>
-          <input type="text" name="to" class="form-control" value="<?php echo $to;?>">
+          <input type="text" name="too" class="form-control" value="<?php echo $to;?>">
         </div>
         <div class="form-group">
           <label for="message">Message</label>

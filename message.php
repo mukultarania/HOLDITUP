@@ -18,6 +18,11 @@
 <h2 id="main-header">Messages</h2>
 <hr>
 <div class="container-fluid contain">
+  <div class="row">
+    <div class="col-2 ml-auto">
+      <button type="button" class="btn btn-success btn-block" onclick="location.href='msg/reply.php';" name="button">SEND MESSAGE</button>
+    </div>
+  </div>
 <?php
   if($_SESSION['email']){
     $email = $_SESSION['email'];

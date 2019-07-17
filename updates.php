@@ -1,5 +1,9 @@
 </head>
+<?php session_start(); ?>
+<?php include "includes/db.php"; ?>
+<?php include "includes/functions.php"; ?>
 <?php include "includes/header.php"; ?>
+<?php if(isset($_SESSION['email'])){ ?>
 <body>
   <!-- <h1 id="main-header">WELCOME TO TEAM MANAGEMENT SYSTEM</h1> -->
   <!-- navigation-->
@@ -16,6 +20,13 @@
  <h3 id="main-header">UPDATES</h3>
 <hr>
 <div class="container-fluid contain">
+  <?php
+  $team_email = $_SESSION['email'];
+  $get_team = "SELECT * FROM members where mem_email = '$team_email' OR mem_teamemail = '$team_email'";
+  $get_team_res = mysqli_query($connection, $get_team); checkQry($get_team_res);
+  while ($row = mysqli_fetch_assoc($get_team_res)) {
+    $team_name = $row['mem_teamname'];
+  ?>
   <div class="row">
     <div class="col-2">
       <div class="dropdown">
@@ -23,29 +34,16 @@
           Team Name
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="updates.php?team_name=<?php echo $team_name;?>"><?php echo $team_name; ?></a>
         </div>
       </div>
-    </div>
-    <div class="col-2">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Team Name
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-          </div>
-        </div>
-    </div>
-    <div class="col-1">
-      <button type="button" class="btn btn-secondary btn-block" name="button">GO</button>
-    </div>
+    </div><?php } ?>
     <div class="col-2 ml-auto">
       <button type="button" class="btn btn-success btn-block" onclick="location.href='post-update.php';" name="button">POST UPDATE</button>
     </div>
   </div>
   <hr>
-  <br><br>
+  <br>
   <div class="row">
     <div class="col-xl-2">
       <h7>From: <strong><small>GG</small></strong></h7><br>
@@ -68,3 +66,6 @@
 
 <!--footer-->
 <?php include "includes/footer.php"; ?>
+<?php } else {
+  echo "<script>location.href = 'index.php'</script>";
+} ?>
