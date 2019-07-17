@@ -2,7 +2,7 @@
 <?php
 function checkQry($res){
   if(!$res){
-    die("Illegal Query");
+    die("KUCH TO GALAT HAI");
   }
 }
 function checkLogin($email, $password){
@@ -17,6 +17,7 @@ function checkLogin($email, $password){
         if($row['user_email']==$email && $row['user_password']==$password){
           $_SESSION['email']= $email;
           $_SESSION['ID']= $row['user_id'];
+          $_SESSION['name']= $row['user_name'];
           echo "<script>location.href='dashboard.php'</script>";
         }
       }
@@ -30,7 +31,19 @@ function sendmsg($to, $email, $content){
   checkQry($msg);
 }
 
-function createTeam(){
-
+function addMember($name, $email, $team_name,$team_email, $position){
+  global $connection;
+  $status = 0;
+  //$name = $_SESSION['name'];
+  //$team_email = $_SESSION['email'];
+  $qry = "INSERT INTO members (mem_name, mem_email, mem_teamname, mem_teamemail, mem_position, mem_status) values ('$name', '$email', '$team_name', '$team_email',  '$position', '$status')";
+  $res = mysqli_query($connection, $qry);
+  checkQry($res);
+}
+function req($email, $myemail, $reqtype, $status){
+  global $connection;
+  $qry = "INSERT INTO request (req_type, req_from, req_to, req_status) values('$reqtype', '$myemail', '$email', '$status')";
+  $req = mysqli_query($connection, $qry);
+  checkQry($req);
 }
  ?>

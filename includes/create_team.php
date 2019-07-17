@@ -3,10 +3,11 @@
 <?php
 if(isset($_POST['create'])){
   global $connection;
-  $name = $_POST['name']; $leader = $_POST['leader']; $content = $_POST['content']; $joinid = uniqid(); $email = $_SESSION['email'];
+  $name = $_POST['name']; $leader = $_POST['leader']; $content = $_POST['content']; $joinid = uniqid(); $email = $_SESSION['email']; $myname = $_SESSION['name'];
   $qry = "INSERT INTO team (team_name, team_leader, team_joinid, team_email, team_desc, team_date) values ('$name', '$leader', '$joinid', '$email', '$content', CURDATE())";
   $create_team = mysqli_query($connection, $qry);
   checkQry($create_team);
+  addMember($myname, $email, $name, $email, "leader");
 }
  ?>
 <div class="container-fluid contain">

@@ -17,6 +17,7 @@
 </div>
 <h2 id="main-header">Messages</h2>
 <hr>
+<div class="container-fluid contain">
 <?php
   if($_SESSION['email']){
     $email = $_SESSION['email'];
@@ -26,24 +27,23 @@
     while($row = mysqli_fetch_assoc($msg)){
       $sender = $row['msg_sender']; $receiver = $row['msg_receiver']; $date = $row['msg_date']; $time= $row['msg_time']; $content = $row['msg_content'];
  ?>
-<div class="container-fluid contain">
   <div class="row">
-    <div class="col-xl-2">
+    <div class="col-2">
       <h7>Sender: <strong><small><?php echo "$sender"; ?></small></strong></h7><br>
       <h7>Receiver: <strong><small><?php echo "$receiver"; ?></small></strong></h7><br>
       <h7>Date: <strong><small><?php echo "$date"; ?></small></strong></h7><br>
       <h7>Time: <strong><small><?php echo "$time"; ?></small></strong></h7><br>
     </div>
-    <div class="col-xl-9">
+    <div class="col-9">
       <h5><b>Content:</b></h5><p><?php echo "$content"; ?></p>
     </div>
-    <div class="col-xl-1"><hr>
+    <div class="col-1">
       <button type="button" name="button" onclick="location.href='includes/reply.php?to=<?php echo $sender; ?>';">Reply</button>
     </div>
-  </div><br> <hr>
-</div>
+  </div><hr>
 <?php }}else{
   echo "<script>location.href='index.php'</script>";
   } ?>
+</div>
 <!--footer-->
 <?php include "includes/footer.php"; ?>

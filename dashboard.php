@@ -25,10 +25,13 @@ if(isset($_GET['select'])){
         include "includes/create_team.php";
         break;
     case "task":
-    include "includes/task.php";
+    include "task/task.php";
+    break;
+    case "request":
+    include "msg/request.php";
     break;
     case "join":
-    include "includes/join.php";
+    include "msg/join.php";
     break;
     case "members":
     include "includes/members.php";

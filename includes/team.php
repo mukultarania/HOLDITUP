@@ -29,11 +29,14 @@
         if(isset($_SESSION['email'])){
           global $connection;
           $email = $_SESSION['email'];
-          $qry = "SELECT * FROM team where team_email = '$email'";
-          $res = mysqli_query($connection, $qry);
-          checkQry($res);
-          while($row = mysqli_fetch_assoc($res)) {
-            $name = $row['team_name']; $leader = $row['team_leader']; $joinid = $row['team_joinid']; $t_email = $row['team_email']; $desp = $row['team_desc'];
+          $team_qry = "SELECT * FROM team where team_email = '$email'";
+          $team_res = mysqli_query($connection, $team_qry);
+          checkQry($team_res);
+          while($team_row = mysqli_fetch_assoc($team_res)) {
+            $name = $team_row['team_name']; $leader = $team_row['team_leader'];
+            $joinid = $team_row['team_joinid']; 
+            $t_email = $team_row['team_email'];
+            $desp = $team_row['team_desc'];
             echo "<tr>
               <td>$name</td>
               <td>$leader</td>

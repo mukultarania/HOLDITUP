@@ -5,7 +5,7 @@
 // $name, $phone, $email, $password
 if(isset($_POST['submit'])){
   global $connection;
-  $name = ($_POST['name']);
+  $name = $_POST['name'];
   $email = $_POST['email'];
   $phone = $_POST['phone'];
   $password = $_POST['password'];
@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
         </div>
         <div class="txt-left-side">
             <h2> Sign Up Here </h2>
-            <form action="index.html" method="post">
+            <form action="index.php" method="post">
                 <div class="form-left-to-w3l">
                     <span class="fa fa-user-o" aria-hidden="true"></span>
                     <input type="text" name="name" placeholder=" Name" required="">
