@@ -1,5 +1,14 @@
 </head>
+<?php session_start(); ?>
+<?php include "includes/db.php"; ?>
+<?php include "includes/functions.php"; ?>
 <?php include "includes/header.php"; ?>
+<?php if(isset($_SESSION['email'])) { ?>
+<?php $my_email = $_SESSION['email'];
+$my_name = $_SESSION['name'];
+$profile_qry = "SELECT * FROM user where user_email = '$my_email' and user_name = '$my_name'";
+$profile_result = mysqli_query($connection, $profile_qry); checkQry($profile_result);
+ ?>
 <body>
   <!-- <h1 id="main-header">WELCOME TO TEAM MANAGEMENT SYSTEM</h1> -->
   <!-- navigation-->
@@ -26,10 +35,10 @@
     <div class="col-xl-2 mr-auto">
       <br>
       <h3><strong>Name</strong></h3><br>
-      <h3><strong>Age</strong></h3><br>
-      <h3><strong>E-Mail</strong></h3><br>
       <h3><strong>Phone-no</strong></h3><br>
-      <h3><strong>Task Completed</strong></h3><br>
+      <h3><strong>E-Mail</strong></h3><br>
+      <h3><strong>Password</strong></h3><br>
+      <!-- <h3><strong>Task Completed</strong></h3><br> -->
     <!-- <ul class="list-group" style="list-style: none;">
       <li class="list-group-item"></li>
       <li class="list-group-item"></li>
@@ -39,12 +48,14 @@
     </ul> -->
     </div>
     <div class="col-xl-2 mr-auto">
-      <br>
-      <h3>Mukul</h3><br>
-      <h3>22</h3><br>
-      <h3>mukul@gmail.com</h3> <br>
-      <h3>987654312</h3><br>
-      <h3>987654312</h3><br>
+    <?php
+    while($row = mysqli_fetch_assoc($profile_result)){
+      echo "<br>
+      <h3>{$row['user_name']}</h3><br>
+      <h3>{$row['user_phone']}</h3><br>
+      <h3>{$row['user_email']}</h3> <br>
+      <h3>{$row['user_password']}</h3><br>";
+    } ?>
     </div>
   </div>
   <br>
@@ -53,3 +64,7 @@
 
 <!--footer-->
 <?php include "includes/footer.php"; ?>
+<?php
+  } else {
+  echo "<script>location.href = 'index.php'</script>";
+} ?>

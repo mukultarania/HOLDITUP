@@ -46,4 +46,10 @@ function req($email, $myemail, $reqtype, $status){
   $req = mysqli_query($connection, $qry);
   checkQry($req);
 }
+function sendTask($to, $from, $team, $content){
+  global $connection;
+  $task_qry = "INSERT INTO task (task_to, task_from, task_team, task_content) values ('$to', '$from', '$team', '$content')";
+  $task_res = mysqli_query($connection, $task_qry);
+  checkQry($task_res);
+}
  ?>

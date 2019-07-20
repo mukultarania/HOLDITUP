@@ -10,9 +10,9 @@ if(isset($_SESSION['email'])){
       $email = $_SESSION['email'];
       $content = $_POST['content'];
       sendmsg($to, $email, $content);
-    } else {
+    } else if(isset($_POST['too'])){
       global $connection;
-      $to=$_GET['too'];
+      $to=$_POST['too'];
       $email = $_SESSION['email'];
       $content = $_POST['content'];
       sendmsg($to, $email, $content);
@@ -54,15 +54,15 @@ if(isset($_SESSION['email'])){
     </div>
   </div>
 </div>
-<h2 id="main-header">Reply</h2>
+<h2 id="main-header">SEND MESSAGE</h2>
 <hr>
 <div class="container-fluid contain">
   <div class="row">
     <div class="col-11">
-      <form action="# " method="post">
+      <form action="#" method="post">
         <div class="form-group">
           <label for="first-name">To</label>
-          <input type="text" name="too" class="form-control" value="<?php echo $to;?>">
+          <input type="text" name="too" class="form-control" value="<?php if(isset($_GET['to'])){ echo $_GET['to'];}?>">
         </div>
         <div class="form-group">
           <label for="message">Message</label>

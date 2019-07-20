@@ -1,4 +1,7 @@
 </head>
+<?php session_start(); ?>
+<?php include "includes/db.php"; ?>
+<?php include "includes/functions.php"; ?>
 <?php include "includes/header.php"; ?>
 <body>
   <!-- <h1 id="main-header">WELCOME TO TEAM MANAGEMENT SYSTEM</h1> -->

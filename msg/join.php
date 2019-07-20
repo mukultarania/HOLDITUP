@@ -1,6 +1,3 @@
-<?php session_start(); ?>
-<?php include "includes/db.php"; ?>
-<?php include "includes/functions.php"; ?>
 <?php
 if(isset($_POST['join']) && isset($_SESSION['email'])){
   $id = $_POST['id'];

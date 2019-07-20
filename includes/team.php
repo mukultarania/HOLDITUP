@@ -1,6 +1,4 @@
-<?php session_start(); ?>
 <?php include "includes/db.php"; ?>
-<?php include "includes/functions.php"; ?>
 <div class="container-fluid contain">
   <div class="row">
     <h2 id="main-header">Team</h2>
@@ -34,7 +32,7 @@
           checkQry($team_res);
           while($team_row = mysqli_fetch_assoc($team_res)) {
             $name = $team_row['team_name']; $leader = $team_row['team_leader'];
-            $joinid = $team_row['team_joinid']; 
+            $joinid = $team_row['team_joinid'];
             $t_email = $team_row['team_email'];
             $desp = $team_row['team_desc'];
             echo "<tr>

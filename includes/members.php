@@ -1,6 +1,3 @@
-<?php session_start(); ?>
-<?php include "includes/db.php"; ?>
-<?php include "includes/functions.php"; ?>
 <div class="container-fluid contain">
   <div class="row">
     <h2 id="main-header">Members</h2>

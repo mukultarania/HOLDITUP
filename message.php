@@ -1,3 +1,4 @@
+</head>
 <?php session_start(); ?>
 <?php include "includes/db.php"; ?>
 <?php include "includes/functions.php"; ?>
@@ -15,6 +16,7 @@
 
   </div>
 </div>
+<br>
 <h2 id="main-header">Messages</h2>
 <hr>
 <div class="container-fluid contain">
@@ -22,7 +24,7 @@
     <div class="col-2 ml-auto">
       <button type="button" class="btn btn-success btn-block" onclick="location.href='msg/reply.php';" name="button">SEND MESSAGE</button>
     </div>
-  </div>
+  </div><br><hr>
 <?php
   if($_SESSION['email']){
     $email = $_SESSION['email'];
@@ -43,7 +45,7 @@
       <h5><b>Content:</b></h5><p><?php echo "$content"; ?></p>
     </div>
     <div class="col-1">
-      <button type="button" name="button" onclick="location.href='includes/reply.php?to=<?php echo $sender; ?>';">Reply</button>
+      <button type="button" name="button" onclick="location.href='msg/reply.php?to=<?php echo $sender; ?>';">Reply</button>
     </div>
   </div><hr>
 <?php }}else{
@@ -51,4 +53,5 @@
   } ?>
 </div>
 <!--footer-->
+
 <?php include "includes/footer.php"; ?>
