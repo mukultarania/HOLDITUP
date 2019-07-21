@@ -18,7 +18,6 @@ if(isset($_SESSION['email'])){
       sendmsg($to, $email, $content);
     }
   }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,3 +85,7 @@ if(isset($_SESSION['email'])){
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+<?php
+  } else {
+  echo "<script>location.href = 'index.php'</script>";
+} ?>

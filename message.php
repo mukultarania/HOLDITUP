@@ -3,6 +3,7 @@
 <?php include "includes/db.php"; ?>
 <?php include "includes/functions.php"; ?>
 <?php include "includes/header.php"; ?>
+<?php if(isset($_SESSION['email'])){ ?>
 <body>
   <!-- <h1 id="main-header">WELCOME TO TEAM MANAGEMENT SYSTEM</h1> -->
   <!-- navigation-->
@@ -26,13 +27,13 @@
     </div>
   </div><br><hr>
 <?php
-  if($_SESSION['email']){
     $email = $_SESSION['email'];
     $qry = "SELECT * FROM message where msg_receiver = '$email'";
     $msg = mysqli_query($connection, $qry);
     checkQry($msg);
     while($row = mysqli_fetch_assoc($msg)){
       $sender = $row['msg_sender']; $receiver = $row['msg_receiver']; $date = $row['msg_date']; $time= $row['msg_time']; $content = $row['msg_content'];
+      $id = $row['msg_id'];
  ?>
   <div class="row">
     <div class="col-2">
@@ -45,13 +46,17 @@
       <h5><b>Content:</b></h5><p><?php echo "$content"; ?></p>
     </div>
     <div class="col-1">
-      <button type="button" name="button" onclick="location.href='msg/reply.php?to=<?php echo $sender; ?>';">Reply</button>
+      <button type="button" name="button" class="btn btn-secondary" onclick="location.href='msg/reply.php?to=<?php echo $sender; ?>';">Reply</button><br><br>
+      <button type="button" name="button" class="btn btn-danger" onclick="location.href='message.php?del=<?php echo $id; ?>';">Delete</button>
     </div>
   </div><hr>
+</div>
+<?php
+if(isset($_GET['del'])){
+  delMsg($_GET['del']);
+} ?>
+<!--footer-->
+<?php include "includes/footer.php"; ?>
 <?php }}else{
   echo "<script>location.href='index.php'</script>";
   } ?>
-</div>
-<!--footer-->
-
-<?php include "includes/footer.php"; ?>

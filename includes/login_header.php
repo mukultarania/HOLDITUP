@@ -20,11 +20,11 @@
     </script>
     <!-- Meta tags -->
     <!-- font-awesome icons -->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
     <!-- //font-awesome icons -->
     <!--stylesheets-->
-    <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
     <!--//style sheet end here-->
     <link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
 </head>

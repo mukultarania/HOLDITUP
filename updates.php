@@ -34,7 +34,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <?php   while ($row = mysqli_fetch_assoc($get_team_res)) {
             $team_name = $row['mem_teamname']; $team_email = $row['mem_teamemail']; ?>
-          <a class="dropdown-item" href="updates.php?team_name=<?php echo "$team_name";?>"><?php echo "$team_name"; ?></a>
+          <a class="dropdown-item" href="updates.php?team_name=<?php echo $team_name;?>"><?php echo "$team_name"; ?></a>
           <?php } ?>
         </div>
       </div>

@@ -3,6 +3,7 @@
 <?php include "includes/db.php"; ?>
 <?php include "includes/functions.php"; ?>
 <?php include "includes/header.php"; ?>
+<?php if(isset($_SESSION['email'])){ ?>
 <body>
   <!-- <h1 id="main-header">WELCOME TO TEAM MANAGEMENT SYSTEM</h1> -->
   <!-- navigation-->
@@ -51,3 +52,6 @@ if(isset($_GET['select'])){
 
 <!--footer-->
 <?php include "includes/footer.php"; ?>
+<?php }else{
+  echo "<script>location.href='index.php'</script>";
+  } ?>

@@ -21,8 +21,8 @@
 <hr>
 <div class="container-fluid contain">
   <?php
-  $my_email = $_SESSION['email'];
-  $get_team = "SELECT * FROM members where mem_email = '$my_email' OR mem_teamemail = '$my_email'";
+  $my_email = $_SESSION['email']; $my_name = $_SESSION['name'];
+  $get_team = "SELECT * FROM members where (mem_email = '$my_email' OR mem_teamemail = '$my_email') AND mem_name = '$my_name'";
   $get_team_res = mysqli_query($connection, $get_team); checkQry($get_team_res);
   ?>
   <div class="row">
@@ -31,14 +31,15 @@
         <button class="btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Team Name
         </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <?php   while ($row = mysqli_fetch_assoc($get_team_res)) {
             $team_name = $row['mem_teamname']; $team_email = $row['mem_teamemail']; ?>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="post-update.php?team_name=<?php echo $team_name;?>"><?php echo $team_name; ?></a>
-        </div><?php } ?>
+          <a class="dropdown-item" href="post-update.php?team_name=<?php echo "$team_name";?>"><?php echo "$team_name"; ?></a>
+          <?php } ?>
+        </div>
       </div>
     </div>
-  </div>
+  </div><br>
   <div class="row">
     <div class="col-7">
       <form action="#" method="post">

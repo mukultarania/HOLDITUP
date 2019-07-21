@@ -48,8 +48,20 @@ function req($email, $myemail, $reqtype, $status){
 }
 function sendTask($to, $from, $team, $content){
   global $connection;
-  $task_qry = "INSERT INTO task (task_to, task_from, task_team, task_content) values ('$to', '$from', '$team', '$content')";
+  $task_qry = "INSERT INTO task (task_to, task_from, task_team, task_content,task_date) values ('$to', '$from', '$team', '$content', CURDATE())";
   $task_res = mysqli_query($connection, $task_qry);
   checkQry($task_res);
+}
+function delMsg($id){
+  global $connection;
+  $del_qry = "DELETE FROM message where msg_id = {$id}";
+  $del_res = mysqli_query($connection, $del_qry);
+  checkQry($del_res);
+}
+function delMember($id){
+  global $connection;
+  $del_qry = "DELETE FROM members where mem_id = {$id}";
+  $del_res = mysqli_query($connection, $del_qry);
+  checkQry($del_res);
 }
  ?>
