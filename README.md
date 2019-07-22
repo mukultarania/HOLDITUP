@@ -10,3 +10,4 @@ What you can do with my team management web application
 - Can Send Message to other user using email
 - A leader of a team can assign task to members.
 - Join request system (leader have to accept join team request)
+{$name}, {$email}, {$team_name}, {$team_email},  {$position}

@@ -64,8 +64,8 @@
 </div>
 <?php
 if(isset($_POST['update']) && isset($_GET['team_name'])){
-  $up_content = $_POST['content'];
-  $team_name = $_GET['team_name'];
+  $up_content = mysqli_real_escape_string($connection, $_POST['content']);
+  $team_name = mysqli_real_escape_string($connection, $_GET['team_name']);
   $up_qry = "INSERT INTO updates (up_teamname, up_teamemail, up_from,	up_content, up_date, up_time) VALUES ('$team_name', '$team_email', '$my_email', '$up_content', CURDATE(), CURTIME())";
   $up_res = mysqli_query($connection, $up_qry); checkQry($up_qry);
 }

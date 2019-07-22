@@ -5,7 +5,7 @@
 <?php include "includes/header.php"; ?>
 <?php if(isset($_SESSION['email'])){ ?>
 <?php
-$my_name = $_SESSION['name'];
+$my_name = mysqli_real_escape_string($connection, $_SESSION['name']);
 $mytask_qry = "SELECT * FROM task where task_to = '$my_name'";
 $mytask_res = mysqli_query($connection, $mytask_qry);
 checkQry($mytask_res); ?>
@@ -36,11 +36,7 @@ checkQry($mytask_res); ?>
     </div>
   </div><hr>
 <?php } ?>
-  <div class="rwo">
-    <div class="col-2 ml-auto">
-      <button class="btn btn-primary" type="submit" name="button" width=50px>FINISH</button>
-    </div>
-  </div><br> <hr>
+  <br> <hr>
 </div>
 
 <!--footer-->

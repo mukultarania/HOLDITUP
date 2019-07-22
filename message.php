@@ -33,7 +33,7 @@
     checkQry($msg);
     while($row = mysqli_fetch_assoc($msg)){
       $sender = $row['msg_sender']; $receiver = $row['msg_receiver']; $date = $row['msg_date']; $time= $row['msg_time']; $content = $row['msg_content'];
-      $id = $row['msg_id'];
+      $id = $row['msg_id']; $mname = $row['msg_sname'];
  ?>
   <div class="row">
     <div class="col-2">
@@ -43,13 +43,13 @@
       <h7>Time: <strong><small><?php echo "$time"; ?></small></strong></h7><br>
     </div>
     <div class="col-9">
-      <h5><b>Content:</b></h5><p><?php echo "$content"; ?></p>
+      <h5><b><?php echo "$mname"; ?>:</b></h5><p><?php echo "$content"; ?></p>
     </div>
     <div class="col-1">
       <button type="button" name="button" class="btn btn-secondary" onclick="location.href='msg/reply.php?to=<?php echo $sender; ?>';">Reply</button><br><br>
       <button type="button" name="button" class="btn btn-danger" onclick="location.href='message.php?del=<?php echo $id; ?>';">Delete</button>
     </div>
-  </div><hr>
+  </div><hr><?php } ?>
 </div>
 <?php
 if(isset($_GET['del'])){
@@ -57,6 +57,6 @@ if(isset($_GET['del'])){
 } ?>
 <!--footer-->
 <?php include "includes/footer.php"; ?>
-<?php }}else{
+<?php }else{
   echo "<script>location.href='index.php'</script>";
   } ?>

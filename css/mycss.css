@@ -82,3 +82,9 @@ body{
   padding-left: 12%;
   padding-right: 3%;
 }
+.main-work{
+  text-align: center;
+  margin: 15px;
+  font-size: 30px;
+  font-family: 'B612', sans-serif;
+}

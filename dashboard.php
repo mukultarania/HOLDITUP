@@ -40,7 +40,9 @@ if(isset($_GET['select'])){
     case "members":
     include "includes/members.php";
     break;
-
+    case "main":
+    include "task/main.php";
+    break;
     default:
         echo "<script>location.href='dashboard.php'</script>";
 }

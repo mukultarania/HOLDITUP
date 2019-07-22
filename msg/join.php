@@ -1,16 +1,16 @@
 <?php
 if(isset($_POST['join']) && isset($_SESSION['email'])){
-  $id = $_POST['id'];
-  $qry = "SELECT * FROM team";
-  $res = mysqli_query($connection, $qry);
-  checkQry($res);
-  while($row = mysqli_fetch_assoc($res)){
+  $id = mysqli_real_escape_string($connection, $_POST['id']);
+  $join_qry = "SELECT * FROM team";
+  $join_res = mysqli_query($connection, $join_qry);
+  checkQry($join_res);
+  while($row = mysqli_fetch_assoc($join_res)){
     if($row['team_joinid'] == $id){
-      $email = $row['team_email'];
-      $myemail = $_SESSION['email'];
+      $email = mysqli_real_escape_string($connection, $row['team_email']);
+      $myemail = mysqli_real_escape_string($connection, $_SESSION['email']);
       $reqtype = "team";
       $status = 0;
-      req($email, $myemail, $reqtype, $status);
+      req($email, $myemail, $reqtype, $status, $id);
     }
   }
 }

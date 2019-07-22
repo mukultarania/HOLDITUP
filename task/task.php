@@ -19,9 +19,9 @@
 </div>
 <?php
 if(isset($_POST['button']) && isset($_GET['t_name']) && isset($_GET['mem_name'])){
-  $m_name=$_GET['mem_name'];
-  $my_email = $_SESSION['name'];
-  $t_name = $_GET['t_name'];
-  $content = $_POST['content'];
+  $m_name= mysqli_real_escape_string($connection, $_GET['mem_name']);
+  $my_email = mysqli_real_escape_string($connection, $_SESSION['name']);
+  $t_name = mysqli_real_escape_string($connection, $_GET['t_name']);
+  $content = mysqli_real_escape_string($connection, $_POST['content']);
   sendTask($m_name, $my_email, $t_name, $content);
 }?>

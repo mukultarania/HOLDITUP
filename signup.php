@@ -5,10 +5,10 @@
 // $name, $phone, $email, $password
 if(isset($_POST['signup'])){
   global $connection;
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $phone = $_POST['phone'];
-  $password = $_POST['password'];
+  $name = mysqli_real_escape_string($connection, $_POST['name']);
+  $email = mysqli_real_escape_string($connection, $_POST['email']);
+  $phone = mysqli_real_escape_string($connection, $_POST['phone']);
+  $password = mysqli_real_escape_string($connection, $_POST['password']);
   $signup_qry = "INSERT INTO user (user_name, user_phone, user_email, user_password) VALUES ('$name', '$phone', '$email', '$password')";
   $result = mysqli_query($connection, $signup_qry);
   checkQry($result);

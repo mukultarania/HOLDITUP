@@ -1,20 +1,20 @@
 <?php session_start(); ?>
 <?php include "../includes/db.php"; ?>
 <?php include "../includes/functions.php"; ?>
+<?php if(isset($_SESSION['email'])){ ?>
 <?php
-if(isset($_SESSION['email'])){
-  if(isset($_POST['submit'])){
+if(isset($_POST['submit'])){
     if(isset($_GET['to'])){
-      $to=$_GET['to'];
       global $connection;
-      $email = $_SESSION['email'];
-      $content = $_POST['content'];
+      $to= mysqli_real_escape_string($connection, $_GET['to']);
+      $email = mysqli_real_escape_string($connection, $_SESSION['email']);
+      $content = mysqli_real_escape_string($connection, $_POST['content']);
       sendmsg($to, $email, $content);
     } else if(isset($_POST['too'])){
       global $connection;
-      $to=$_POST['too'];
-      $email = $_SESSION['email'];
-      $content = $_POST['content'];
+      $to= mysqli_real_escape_string($connection, $_POST['too']);
+      $email = mysqli_real_escape_string($connection, $_SESSION['email']);
+      $content = mysqli_real_escape_string($connection, $_POST['content']);
       sendmsg($to, $email, $content);
     }
   }
@@ -33,26 +33,28 @@ if(isset($_SESSION['email'])){
 </head>
 <body>
   <div class="topnav sticky-top">
-    <a class="active" href="../dashboard.php">Home</a>
+    <a class="active" href="../dashboard.php?select=main">Home</a>
     <a href="../profile.php">Profile</a>
     <!-- <a href="#contact">Contact</a> -->
     <div class="topnav-right">
-      <a href="../message.php"><img src="https://img.icons8.com/small/16/000000/sms.png"></a>
-      <a href="#about"><img src="https://img.icons8.com/small/16/000000/logout-rounded-up.png"></a>
+      <a href="../dashboard.php?select=request" data-toggle="tooltip" title="Join Request"><img src="https://img.icons8.com/ios/16/000000/invite.png"></a>
+      <a href="../message.php"  data-toggle="tooltip" title="Messages"><img src="https://img.icons8.com/small/16/000000/sms.png"></a>
+      <a href="../includes/logout.php" data-toggle="tooltip" title="Logout"><img src="https://img.icons8.com/small/16/000000/logout-rounded-up.png"></a>
     </div>
   </div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-2">
       <div class="w3-sidebar w3-bar-block w3-light-grey w3-xlarge sidebar sticky-left">
-        <a href="updates.php" class="w3-bar-item w3-button">Updates</a>
-        <a href="#" class="w3-bar-item w3-button">Projects</a>
-        <a href="includes/members.php" class="w3-bar-item w3-button">Members</a>
-        <a href="includes/team.php" class="w3-bar-item w3-button">Team</a>
+        <a href="../dashboard.php?select=team" class="w3-bar-item w3-button">Team</a>
+        <a href="../updates.php" class="w3-bar-item w3-button">Updates</a>
+        <a href="../task.php" class="w3-bar-item w3-button">Tasks</a>
+        <a href="../dashboard.php?select=members" class="w3-bar-item w3-button">Members</a>
       </div>
     </div>
   </div>
 </div>
+<br>
 <h2 id="main-header">SEND MESSAGE</h2>
 <hr>
 <div class="container-fluid contain">

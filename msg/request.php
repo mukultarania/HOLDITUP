@@ -6,38 +6,52 @@ if(isset($_SESSION['email'])){
   checkQry($req_res);
  ?>
 <div class="container-fluid contain">
-<?php while($row = mysqli_fetch_assoc($req_res)){
-  $from = $row['req_from']; $type = $row['req_type']; $id = $row['req_id']; ?>
   <div class="row">
-    <div class="col-5">
+    <h2 id="main-header">Request</h2>
+  </div>
+<?php while($row = mysqli_fetch_assoc($req_res)){
+  $t_id = mysqli_real_escape_string($connection, $row['req_teamid']);
+  $to = mysqli_real_escape_string($connection, $row['req_to']);
+  $from = mysqli_real_escape_string($connection, $row['req_from']);
+  $type = mysqli_real_escape_string($connection, $row['req_type']);
+  $id = mysqli_real_escape_string($connection, $row['req_id']);
+  ?>
+  <div class="row">
+    <div class="col-2">
       <h7>From: <strong><small><?php echo $from;?></small></strong></h7><br>
     </div>
-    <div class="col-5">
-      <h7>Type: <strong><small><?php echo $type;?></small></strong></h7><br>
+    <div class="col-8">
+      <h7>Wants to Join Your <strong><?php echo $type;?></strong></h7><br>
     </div>
     <div class="col-2 mr-auto">
       <form action=# method="post">
         <button class="btn btn-primary" type="submit" name="accept" method="post">ACCEPT</button> <button class="btn btn-primary" type="submit" name="decline">DECLINE</button>
       </form>
     </div>
-  </div><hr><?php } ?>
+  </div><hr>
 </div>
 <?php
 if(isset($_POST['accept'])){
-  $qry = "SELECT * FROM user, team where user_email = '$from' AND team_email = '$email'";
-  $accept = mysqli_query($connection, $qry);
-  checkQry($accept);
-  while($row = mysqli_fetch_assoc($accept)){
-    $usr_name = $row['user_name'];
-    addMember($row['user_name'], $row['user_email'], $row['team_name'],$row['team_email'], "Member");
+  $pstn="Member";
+  $acc_qry = "SELECT * FROM user, team where user_email = '$from' AND team_email = '$to'";
+  $acc_res = mysqli_query($connection, $acc_qry);
+  checkQry($acc_res);
+  while($row = mysqli_fetch_assoc($acc_res)){
+    $myname=$row['user_name']; $usr_email= $row['user_email']; $name=$row['team_name']; $email = $row['team_email'];
+    if($t_id == $row['team_joinid']){
+      addMember($myname, $from, $name, $email, $pstn);
+    }
   }
   $del_qry = "DELETE FROM request where req_id = '$id'";
   $del_result = mysqli_query($connection, $del_qry);
   checkQry($del_qry);
   echo "<script>location.href='dashboard.php?select=request'</script>";
-}else if(isset($_POST['decline'])){
+
+} else if(isset($_POST['decline'])){
   $del_qry = "DELETE FROM request where req_id = '$id'";
   $del_result = mysqli_query($connection, $del_qry);
   checkQry($del_qry);
 }
+
 } ?>
+<?php } ?>

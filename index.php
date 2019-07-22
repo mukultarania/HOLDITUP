@@ -4,8 +4,8 @@
 <?php include "includes/functions.php"; ?>
 <?php
 if(isset($_POST['submit'])){
-  $email = $_POST['email'];
-  $password = $_POST['password'];
+  $email = mysqli_real_escape_string($connection, $_POST['email']);
+  $password = mysqli_real_escape_string($connection, $_POST['password']);
   checkLogin($email, $password);
   // echo "<script>alert('$email')</script>";
 }

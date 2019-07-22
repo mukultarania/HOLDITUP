@@ -1,5 +1,5 @@
 <div class="topnav sticky-top">
-  <a class="active" href="dashboard.php">Home</a>
+  <a class="active" href="dashboard.php?select=main">Home</a>
   <a href="profile.php">Profile</a>
   <!-- <a href="#contact">Contact</a> -->
   <div class="topnav-right">
