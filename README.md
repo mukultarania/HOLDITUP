@@ -1,5 +1,5 @@
-# Team-CMS
-Team Management Software
+# HOLDITUP
+HOLDITUP is the ability of an individual or an organization to administer and coordinate a group of individuals to perform a task. HOLDITUP involves teamwork, communication, objective setting and performance appraisals.
 
 My Project To Manage Team
 
